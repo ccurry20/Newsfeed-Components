@@ -1,12 +1,12 @@
 /* This is the data we will be using, study it but don't change anything, yet. */
 
 let menuItems = [
-  'Students',
-  'Faculty',
+  "Students",
+  "Faculty",
   "What's New",
-  'Tech Trends',
-  'Music',
-  'Log Out'
+  "Tech Trends",
+  "Music",
+  "Log Out"
 ];
 
 /* 
@@ -19,17 +19,23 @@ let menuItems = [
     </ul>
   </div>
 
-  Pass the function an array as it's only argument.
+  /*Pass the function an array as it's only argument.*/
 
-  Step 2: Iterate over the array creating a list item <li> element for each item in the array. 
-  Add those items to the <ul>
+/*Step 2: Iterate over the array creating a list item <li> element for each item in the array. 
+  Add those items to the <ul>*/
 
-  Step 3: Using a DOM selector, select the menu button currently on the DOM.
-  
-  Step 4: add a click handler to the menu button, when clicked it should toggle the class 'menu--open' on the menu itself
+/*Step 3: Using a DOM selector, select the menu button currently on the DOM.*/
+const menuBtn = document.querySelector(".menu-button");
+/* Step 4: add a click handler to the menu button, when clicked it should toggle the class 'menu--open' on the menu itself*/
+menuBtn.addEventListener("click", toggleMenu);
+/*Step 5: return the menu component.*/
 
-  Step 5: return the menu component.
+/*Step 6: add the menu component to the DOM.*/
+ 
+function createMenu(array) {
+  for (var i = 0; i < item.array.length; i++){
+    var list = item.array[i];
+    
+    list = document.createElement('li');
 
-  Step 6: add the menu component to the DOM.
-  
-*/
+}
