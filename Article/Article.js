@@ -85,9 +85,8 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
-  },
+  }
 ];
-
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
@@ -117,46 +116,45 @@ function createArticle(data) {
   const article = document.createElement("div");
   article.classList.add("article");
 
+  const title = document.createElement("h2");
+  title.textContent = data.title;
+  article.appendChild(title);
 
-const title = document.createElement("h2");
-title.textContent = data.title;
-article.appendChild(title);
+  const date = document.createElement("p");
+  date.classList.add("date");
+  date.textContent = data.date;
+  article.appendChild(date);
 
-const date = document.createElement('p');
-date.classList.add("date");
-date.textContent = data.date;
-article.appendChild(date);
+  const p1 = document.createElement("p");
+  p1.textContent = data.firstParagraph;
+  article.appendChild(p1);
 
-const p1 = document.createElement('p');
-p1.textContent = data.firstParagraph; 
-article.appendChild(p1);
+  const p2 = document.createElement("p");
+  p2.textContent = data.secondParagraph;
+  article.appendChild(p2);
 
-const p2 = document.createElement('p');
-p2.textContent = data.secondParagraph;
-article.appendChild(p2);
+  const p3 = document.createElement("p");
+  p3.textContent = data.thirdParagraph;
+  article.appendChild(p3);
 
-const p3 = document.createElement('p');
-p3.textContent = data.thirdParagraph;
-article.appendChild(p3);
-
-//for (const n of ["first", "second", "third"]) {
+  //for (const n of ["first", "second", "third"]) {
   //const p = document.createElement("p");
   //p.textContent = data[`${n}Paragraph`];
   //article.appendChild(p);
-//}
+  //}
 
-const btn = document.createElement("span");
-btn.textContent = "Expand";
-btn.classList.add("expandButton");
-btn.addEventListener("click", () => {
-  if (article.classList.contains("article-open")) {
-    article.classList.remove("article-open");
-  } else {
-    article.classList.add("article-open");
-  }
-});
-article.appendChild(btn);
-return article;
+  const btn = document.createElement("span");
+  btn.textContent = "Expand";
+  btn.classList.add("expandButton");
+  btn.addEventListener("click", () => {
+    if (article.classList.contains("article-open")) {
+      article.classList.remove("article-open");
+    } else {
+      article.classList.add("article-open");
+    }
+  });
+  article.appendChild(btn);
+  return article;
 }
 
 const articles = data.map(article => createArticle(article));

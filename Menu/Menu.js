@@ -31,42 +31,68 @@ let menuItems = [
 /*Step 5: return the menu component.*/
 
 /*Step 6: add the menu component to the DOM.*/
- 
-function createMenu() {
-  const menu = document.createElement('div');
-  menu.classList.add('menu');
-  const ul = document.createElement('ul');
-  items.forEach(function(item) {
-  var li = document.createElement('li');
-  var text = document.createTextNode(item);
-  li.appendChild(text);
-  ul.appendChild(li);
-  })
-  //menuItems.forEach(item => {
-    //for (var i = 0; i < items.length; i++) {
-      //items[i] = document.createElement('li');
-      //newMenu.textContent = item;
-       //ul.appendChild(newMenu)
-    
-    //let newMenu = document.createElement('li');
-    //newMenu.textContent = item;
-    //ul.appendChild(newMenu);
+
+function createMenu(list) {
+  const menu = document.createElement("div");
+  menu.classList.add("menu");
+
+  const ul = document.createElement("ul");
   menu.appendChild(ul);
-  return items; 
-}
- 
-const toggleMenu = () => {
-  menuBtn.classList.toggle("menu--open");
+
+  // for (var i = 0; i < list.length; i++) {
+  list.forEach(item => {
+    li = document.createElement("li");
+    li.textContent = list;
+    ul.appendChild(li);
+  });
+
+  const toggleMenu = () => {
+    menuBtn.classList.toggle("menu--open");
+  };
+
+  const menuBtn = document.querySelector(".menu-button");
+  menuBtn.addEventListener("click", toggleMenu);
+
+  // var li = document.createElement("li");
+  // menu.appendChild(li);
+
+  // const final = list.map(item => createMenu())
+
+  // list.forEach(item => {
+  //   var li = document.createElement("li");
+  //   li.textContent = item;
+  //   ul.appendChild(li);
+  // });
+
+  return menu;
 }
 
-const menuBtn = document.querySelector(".menu-button");
-menuBtn.addEventListener("click", toggleMenu);
+// for (var i = 0; i < menuItems.length; i++) {
+//   li = document.createElement("li");
+//   ul.appendChild(li);
+// }
 
-const final = createMenu();
+//menuItems.forEach(item => {
+//for (var i = 0; i < items.length; i++) {
+//items[i] = document.createElement('li');
+//newMenu.textContent = item;
+//ul.appendChild(newMenu)
+
+//let newMenu = document.createElement('li');
+//newMenu.textContent = item;
+//ul.appendChild(newMenu);
+//   menu.appendChild(ul);
+//   return items;
+// }
+
+// const toggleMenu = () => {
+//   menuBtn.classList.toggle("menu--open");
+// };
+
+// const menuBtn = document.querySelector(".menu-button");
+// menuBtn.addEventListener("click", toggleMenu);
+
+const final = createMenu(menuItems);
 let header = document.querySelector(".header");
 header.appendChild(final);
 //document.querySelector(".header").appendChild(menu);
-
-
-
-
